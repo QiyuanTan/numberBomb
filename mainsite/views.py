@@ -22,7 +22,7 @@ def index(request):
 def register(request):
     if request.method == 'GET':
         form = RegisterForm
-        return render(request, 'register.html', {'forms': form})
+        return render(request, '../user/templates/templates/register.html', {'forms': form})
 
     form = RegisterForm(data=request.POST)
     if form.is_valid():
@@ -31,7 +31,7 @@ def register(request):
 
         if code.upper() != user_input_code.upper():
             form.add_error("code", "验证码错误")
-            return render(request, 'register.html', {'forms': form})
+            return render(request, '../user/templates/templates/register.html', {'forms': form})
 
     else:
-        return render(request, 'register.html', {'forms': form})
+        return render(request, '../user/templates/templates/register.html', {'forms': form})
