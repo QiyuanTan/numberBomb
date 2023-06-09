@@ -1,15 +1,17 @@
 from django.contrib.auth.decorators import login_required
-from django.forms import ModelForm
+from django import forms
 from django.shortcuts import render
 from django.http import HttpResponse
 
 from mainsite.models import History
 
 
-class Form(ModelForm):
-    class Meta:
-        model = History
-        fields = ['微信号']
+class RegisterForm(forms.Form):
+    wechat_id = forms.CharField(label='微信号')
+    name = forms.CharField(label='姓名')
+    grade = forms.CharField(label='年级')
+    class_number = forms.CharField(label='班级')
+    number = forms.CharField(label='数字')
 
 
 @login_required
@@ -19,10 +21,10 @@ def index(request):
 
 def register(request):
     if request.method == 'GET':
-        form = Form()
+        form = RegisterForm
         return render(request, 'register.html', {'forms': form})
 
-    form = Form(data=request.POST)
+    form = RegisterForm(data=request.POST)
     if form.is_valid():
         user_input_code = form.cleaned_data.pop('code')
         code = request.session.get('code', '')
