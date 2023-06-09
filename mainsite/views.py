@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django import forms
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from mainsite.models import History
 import random
@@ -48,7 +48,8 @@ def register(request):
             form.add_error("name", "请勿重复提交")
             return render(request, 'register.html', {'forms': form})
 
-        history = History(user=user, wechat_id=wechat_id)
+        history = History(user=user, 微信号=wechat_id, 年级=grade, 班级=class_number, 数字=number)
         history.save()
+        return HttpResponseRedirect('/')
     else:
         return render(request, 'register.html', {'forms': form})
