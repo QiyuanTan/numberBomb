@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>游戏管理</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <button id="ajaxButton">初始化</button>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#ajaxButton').click(function() {
+                $.ajax({
+                    url: '',  // 指定服务器的 URL
+                    type: 'POST',  // 请求类型
+                    success: function(response) {
+                    var status = response.status;  // 提取 status 字段
+                    $('#result').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);  // 打印错误信息到控制台
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

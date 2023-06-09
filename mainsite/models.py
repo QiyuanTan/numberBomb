@@ -9,3 +9,7 @@ class History(models.Model):
     number = models.IntegerField(name="数字")
     grade = models.PositiveSmallIntegerField(name='年级')
     class_number = models.PositiveSmallIntegerField(name='班级')
+
+
+class Number(models.Model):
+    number = models.PositiveSmallIntegerField()

@@ -1,13 +1,18 @@
-from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required
-from django import forms
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.models import User
-from mainsite.models import History
 import random
 import string
+
+from django import forms
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+
+from mainsite.models import History
+from mainsite.utils import initialize
 
 
 def generate_random_string(length):
@@ -53,3 +58,13 @@ def register(request):
         return HttpResponseRedirect('/')
     else:
         return render(request, 'register.html', {'forms': form})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+@csrf_exempt
+def admin(request):
+    if request.method == 'GET':
+        return render(request, 'game_admin.html')
+    else:
+        initialize()
+        return JsonResponse({'status': 'success'})
