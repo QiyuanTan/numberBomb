@@ -19,4 +19,11 @@ def initialize():
 
     number = Number.objects.get(pk=1)
     number.number = random.randint(0, 201)
+    number.in_progress = True
+    number.save()
+
+
+def stop_game():
+    number = Number.objects.get(pk=1)
+    number.in_progress = False
     number.save()
