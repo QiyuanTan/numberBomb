@@ -13,3 +13,6 @@ class History(models.Model):
 
 class Number(models.Model):
     number = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.number
