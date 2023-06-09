@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django import forms
 from django.shortcuts import render
@@ -25,7 +26,7 @@ class RegisterForm(forms.Form):
 
 @login_required
 def index(request):
-    return HttpResponse('hello world')
+    return render(request, 'index.html')
 
 
 def register(request):
@@ -40,14 +41,13 @@ def register(request):
         grade = form.cleaned_data.get('grade', '')
         class_number = form.cleaned_data.get('class_number')
         number = form.cleaned_data.get('number')
-        print(wechat_id)
         try:
             user = User.objects.create_user(username=name, password=generate_random_string(10))
             user.save()
+            login(request, user)
         except IntegrityError:
             form.add_error("name", "请勿重复提交")
             return render(request, 'register.html', {'forms': form})
-
         history = History(user=user, 微信号=wechat_id, 年级=grade, 班级=class_number, 数字=number)
         history.save()
         return HttpResponseRedirect('/')
