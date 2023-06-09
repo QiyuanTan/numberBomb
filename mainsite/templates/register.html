@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {%load static %}
 </head>
 <body>
 <form method="POST" novalidate>
-    <h2>BoomImg</h2> <img src={%load static %} '/img/boom.png'  alt=""/>
+    <h2>BoomImg</h2> <img src="{%static '/img/boom.png'%}" alt="">
 
     {% csrf_token %}
     <label>{{ forms.wechat_id.label }}: </label>{{ forms.wechat_id }}<span style="color: red;">{{ forms.wechat_id.errors.0 }}</span><br>
