@@ -11,8 +11,18 @@ class History(models.Model):
     class_number = models.PositiveSmallIntegerField(name='班级')
 
 
+class Winners(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    wechat_id = models.CharField(max_length=100, name='微信号')
+    number = models.IntegerField(name="数字")
+    grade = models.PositiveSmallIntegerField(name='年级')
+    class_number = models.PositiveSmallIntegerField(name='班级')
+    delta = models.PositiveSmallIntegerField()
+
+
 class Number(models.Model):
     number = models.PositiveSmallIntegerField()
+    in_progress = models.BooleanField()
 
     def __str__(self):
-        return self.number
+        return str(self.number)

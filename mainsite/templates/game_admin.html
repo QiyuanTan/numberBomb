@@ -7,6 +7,8 @@
 <body>
     <button id="ajaxButton">初始化</button>
     <div id="result"></div>
+    <button id="ajaxButton2">结束</button>
+    <div id="result2"></div>
 
     <script>
         $(document).ready(function() {
@@ -14,9 +16,24 @@
                 $.ajax({
                     url: '',  // 指定服务器的 URL
                     type: 'POST',  // 请求类型
+                    data: {command:'start'},
                     success: function(response) {
                     var status = response.status;  // 提取 status 字段
                     $('#result').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);  // 打印错误信息到控制台
+                    }
+                });
+            });
+            $('#ajaxButton2').click(function() {
+                $.ajax({
+                    url: '?command=stop',  // 指定服务器的 URL
+                    type: 'POST',  // 请求类型
+                    data: {command:'stop'},
+                    success: function(response) {
+                    var status = response.status;  // 提取 status 字段
+                    $('#result2').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
                     },
                     error: function(xhr, status, error) {
                         console.log(error);  // 打印错误信息到控制台

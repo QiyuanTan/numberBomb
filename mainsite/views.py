@@ -4,15 +4,14 @@ import string
 from django import forms
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from mainsite.models import History
-from mainsite.utils import initialize
+from mainsite.models import History, Number, Winners
+from mainsite.utils import initialize, stop_game
 
 
 def generate_random_string(length):
@@ -31,7 +30,12 @@ class RegisterForm(forms.Form):
 
 @login_required
 def index(request):
-    return render(request, 'index.html')
+    number = Number.objects.get(pk=1)
+    if number.in_progress:  # 游戏进行中
+        return render(request, 'index.html')
+    else:  # 显示结果
+        winners = list(Winners.objects.all())
+        return render(request, 'index.html')
 
 
 def register(request):
@@ -60,11 +64,18 @@ def register(request):
         return render(request, 'register.html', {'forms': form})
 
 
-@user_passes_test(lambda u: u.is_superuser)
 @csrf_exempt
 def admin(request):
-    if request.method == 'GET':
-        return render(request, 'game_admin.html')
+    if not request.user.is_superuser:
+        HttpResponseRedirect('/admin')
     else:
-        initialize()
-        return JsonResponse({'status': 'success'})
+        if request.method == 'GET':
+            return render(request, 'game_admin.html')
+        else:
+            print(request.POST.get('command'))
+            if request.POST.get('command') == 'start':
+                initialize()
+                return JsonResponse({'status': 'success'})
+            else:
+                stop_game()
+                return JsonResponse({'status': 'success'})
