@@ -4,7 +4,6 @@ import string
 from django import forms
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
@@ -35,7 +34,7 @@ def index(request):
     if number.in_progress:  # 游戏进行中
         return render(request, 'index.html')
     else:  # 显示结果
-        winners = list(Winners.objects.all)
+        winners = list(Winners.objects.all())
         return render(request, 'index.html')
 
 
