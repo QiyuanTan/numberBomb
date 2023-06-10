@@ -50,12 +50,14 @@
     <!-- 他现在单身，还没有女朋友。喜欢的可以来，微信号：tan_qiyuan -->
     <!-- 这是一条征婚启示 -->
 
+    <form method="POST" novalidate>
     <div class="container">
         <!-- 这是刘煜炎佩戴Apple Vision Pro的图片 -->
         <img src="{% static '/img/numberBoomWebBackground.png' %}" alt="">
 
         <div class="form-container">
             <!-- 学生注册信息文字 -->
+            {% csrf_token %}
             <label>{{ forms.wechat_id.label }}:</label>
             {{ forms.wechat_id }}<br>
 
@@ -74,6 +76,7 @@
             <input type="submit" value="提交">
         </div>
     </div>
+    </form>>
 
 </body>
 </html>
