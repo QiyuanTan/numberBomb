@@ -26,7 +26,7 @@ def initialize():
         history.delate()
 
     number = Number.objects.get(pk=1)
-    number.number = random.randint(0, 201)
+    number.number = round(200*random.random(), 1)
     number.in_progress = True
     number.save()
 
