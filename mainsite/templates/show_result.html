@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
 </head>
-<body>
+
+body>
     {% for i in winners %}
     {{ i.user.username }}
     {{ i.delta }}
     <br>
     {% endfor %}
 </body>
+
 </html>
