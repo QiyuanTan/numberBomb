@@ -28,7 +28,7 @@ class RegisterForm(forms.Form):
     number = forms.FloatField(label='数字')
 
 
-@login_required
+@login_required()
 def index(request):
     number = Number.objects.get(pk=1)
     if number.in_progress:  # 游戏进行中
@@ -53,7 +53,7 @@ def register(request):
             form = RegisterForm
             return render(request, 'register.html', {'forms': form})
         else:
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/result')
 
     form = RegisterForm(data=request.POST)
     if form.is_valid():
