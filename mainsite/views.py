@@ -40,8 +40,12 @@ def index(request):
 
 def register(request):
     if request.method == 'GET':
-        form = RegisterForm
-        return render(request, 'register.html', {'forms': form})
+        number = Number.objects.get(pk=1)
+        if number.in_progress:
+            form = RegisterForm
+            return render(request, 'register.html', {'forms': form})
+        else:
+            return HttpResponseRedirect('/')
 
     form = RegisterForm(data=request.POST)
     if form.is_valid():

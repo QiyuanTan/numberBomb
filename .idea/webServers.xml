@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="02d87669-f2e3-4e66-b282-858f1bcedc4d" name="xie">
-        <fileTransfer accessType="SFTP" host="43.138.82.158" port="22" sshConfigId="722818dd-d886-4a09-a682-63cab0858264" sshConfig="root@43.138.82.158:22 key" keyPair="true">
+        <fileTransfer accessType="SFTP" host="43.138.82.158" port="22" sshConfigId="722818dd-d886-4a09-a682-63cab0858264" sshConfig="lighthouse@43.138.82.158:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
