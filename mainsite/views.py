@@ -25,7 +25,7 @@ class RegisterForm(forms.Form):
     name = forms.CharField(label='姓名')
     grade = forms.IntegerField(label='年级')
     class_number = forms.IntegerField(label='班级')
-    number = forms.IntegerField(label='数字')
+    number = forms.FloatField(label='数字')
 
 
 @login_required
@@ -40,8 +40,12 @@ def index(request):
 
 def register(request):
     if request.method == 'GET':
-        form = RegisterForm
-        return render(request, 'register.html', {'forms': form})
+        number = Number.objects.get(pk=1)
+        if number.in_progress:
+            form = RegisterForm
+            return render(request, 'register.html', {'forms': form})
+        else:
+            return HttpResponseRedirect('/')
 
     form = RegisterForm(data=request.POST)
     if form.is_valid():
@@ -67,7 +71,7 @@ def register(request):
 @csrf_exempt
 def admin(request):
     if not request.user.is_superuser:
-        HttpResponseRedirect('/admin')
+        return HttpResponseRedirect('/admin?next=game_admin')
     else:
         if request.method == 'GET':
             return render(request, 'game_admin.html')
