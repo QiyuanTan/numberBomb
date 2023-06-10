@@ -69,7 +69,7 @@ def register(request):
         except IntegrityError:
             form.add_error("name", "请勿重复提交")
             return render(request, 'register.html', {'forms': form})
-        history = History(user=user, 微信号=wechat_id, 年级=grade, 班级=class_number, 数字=number)
+        history = History(user=user, wechat_id=wechat_id, grade=grade, class_number=class_number, number=number)
         history.save()
         return HttpResponseRedirect('/')
     else:

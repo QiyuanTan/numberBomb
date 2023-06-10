@@ -5,18 +5,18 @@ from django.db import models
 # Create your models here.
 class History(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    wechat_id = models.CharField(max_length=100, name='微信号')
-    number = models.FloatField(name="数字")
-    grade = models.PositiveSmallIntegerField(name='年级')
-    class_number = models.PositiveSmallIntegerField(name='班级')
+    wechat_id = models.CharField(max_length=100, name='wechat_id')
+    number = models.FloatField(name="number")
+    grade = models.PositiveSmallIntegerField(name='grade')
+    class_number = models.PositiveSmallIntegerField(name='class_number')
 
 
 class Winners(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    wechat_id = models.CharField(max_length=100, name='微信号')
-    number = models.FloatField(name="数字")
-    grade = models.PositiveSmallIntegerField(name='年级')
-    class_number = models.PositiveSmallIntegerField(name='班级')
+    wechat_id = models.CharField(max_length=100, name='wechat_id')
+    number = models.FloatField(name="number")
+    grade = models.PositiveSmallIntegerField(name='grade')
+    class_number = models.PositiveSmallIntegerField(name='class_number')
     delta = models.PositiveSmallIntegerField()
 
 

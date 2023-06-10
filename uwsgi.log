@@ -1,0 +1,49 @@
+*** Starting uWSGI 2.0.21 (64bit) on [Sun Jun 11 04:36:40 2023] ***
+compiled with version: 7.5.0 on 10 June 2023 17:40:35
+os: Linux-4.15.0-212-generic #223-Ubuntu SMP Tue May 23 13:09:22 UTC 2023
+nodename: VM-8-15-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /var/www/numberboom
+writing pidfile to /var/www/numberboom/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /var/www/numberboom/
+your processes number limit is 7705
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.9 (default, Mar 10 2023, 16:46:00)  [GCC 8.4.0]
+Python main interpreter initialized at 0x5571a00ec440
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 364520 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5571a00ec440 pid: 3860 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3860)
+spawned uWSGI worker 1 (pid: 3862, cores: 1)
+spawned uWSGI worker 2 (pid: 3863, cores: 1)
+spawned uWSGI worker 3 (pid: 3864, cores: 1)
+spawned uWSGI worker 4 (pid: 3865, cores: 1)
+[pid: 3862|app: 0|req: 1/1] 23.27.101.36 () {40 vars in 732 bytes} [Sun Jun 11 04:36:46 2023] GET / => generated 0 bytes in 29 msecs (HTTP/1.1 302) 7 headers in 209 bytes (1 switches on core 0)
+[pid: 3865|app: 0|req: 1/2] 23.27.101.36 () {40 vars in 761 bytes} [Sun Jun 11 04:36:46 2023] GET /register?next=/ => generated 0 bytes in 20 msecs (HTTP/1.1 302) 6 headers in 186 bytes (1 switches on core 0)
+[pid: 3864|app: 0|req: 1/3] 23.27.101.36 () {40 vars in 744 bytes} [Sun Jun 11 04:36:47 2023] GET /result => generated 312 bytes in 40 msecs (HTTP/1.1 200) 5 headers in 166 bytes (1 switches on core 0)
+[pid: 3862|app: 0|req: 2/4] 23.27.101.36 () {38 vars in 701 bytes} [Sun Jun 11 04:36:52 2023] GET / => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 209 bytes (1 switches on core 0)
+[pid: 3863|app: 0|req: 1/5] 23.27.101.36 () {38 vars in 730 bytes} [Sun Jun 11 04:36:53 2023] GET /register?next=/ => generated 0 bytes in 16 msecs (HTTP/1.1 302) 6 headers in 186 bytes (1 switches on core 0)
+[pid: 3863|app: 0|req: 2/6] 23.27.101.36 () {38 vars in 713 bytes} [Sun Jun 11 04:36:53 2023] GET /result => generated 312 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 166 bytes (1 switches on core 0)
+[pid: 3865|app: 0|req: 2/7] 23.27.101.36 () {38 vars in 721 bytes} [Sun Jun 11 04:37:01 2023] GET /game_admin => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 215 bytes (1 switches on core 0)
+[pid: 3864|app: 0|req: 2/8] 23.27.101.36 () {38 vars in 742 bytes} [Sun Jun 11 04:37:02 2023] GET /admin?next=game_admin => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 191 bytes (1 switches on core 0)
+[pid: 3864|app: 0|req: 3/9] 23.27.101.36 () {38 vars in 744 bytes} [Sun Jun 11 04:37:02 2023] GET /admin/?next=game_admin => generated 0 bytes in 13 msecs (HTTP/1.1 302) 9 headers in 351 bytes (1 switches on core 0)
+[pid: 3863|app: 0|req: 3/10] 23.27.101.36 () {38 vars in 790 bytes} [Sun Jun 11 04:37:03 2023] GET /admin/login/?next=/admin/%3Fnext%3Dgame_admin => generated 2252 bytes in 64 msecs (HTTP/1.1 200) 9 headers in 461 bytes (1 switches on core 0)
+[pid: 3864|app: 0|req: 4/11] 23.27.101.36 () {50 vars in 1144 bytes} [Sun Jun 11 04:37:12 2023] POST /admin/login/?next=/admin/%3Fnext%3Dgame_admin => generated 0 bytes in 515 msecs (HTTP/1.1 302) 11 headers in 641 bytes (1 switches on core 0)
+[pid: 3862|app: 0|req: 3/12] 23.27.101.36 () {44 vars in 990 bytes} [Sun Jun 11 04:37:13 2023] GET /admin/?next=game_admin => generated 5298 bytes in 55 msecs (HTTP/1.1 200) 8 headers in 293 bytes (1 switches on core 0)
+[pid: 3862|app: 0|req: 4/13] 23.27.101.36 () {40 vars in 854 bytes} [Sun Jun 11 04:37:25 2023] GET /game_admin => generated 1772 bytes in 6 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+start
+[pid: 3863|app: 0|req: 4/14] 23.27.101.36 () {48 vars in 964 bytes} [Sun Jun 11 04:37:28 2023] POST /game_admin => generated 21 bytes in 15 msecs (HTTP/1.1 200) 6 headers in 171 bytes (1 switches on core 0)
+[pid: 3864|app: 0|req: 5/15] 23.27.101.36 () {40 vars in 834 bytes} [Sun Jun 11 04:37:31 2023] GET / => generated 381 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 180 bytes (1 switches on core 0)
