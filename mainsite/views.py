@@ -32,10 +32,10 @@ class RegisterForm(forms.Form):
 def index(request):
     number = Number.objects.get(pk=1)
     if number.in_progress:  # 游戏进行中
-        return render(request, 'index.html')
+        return render(request, 'standby.html')
     else:  # 显示结果
         winners = list(Winners.objects.all())
-        return render(request, 'index.html')
+        return render(request, 'show_result.html', {'winners': winners})
 
 
 def register(request):

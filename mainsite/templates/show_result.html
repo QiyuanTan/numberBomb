@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-hello world
+    {% for i in winners %}
+    {{ i.user.username }}
+    {{ i.delta }}
+    <br>
+    {% endfor %}
 </body>
 </html>
