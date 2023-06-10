@@ -19,7 +19,7 @@
       <paths name="xie">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/var/www/numberboom" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/venv" />

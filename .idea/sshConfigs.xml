@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig host="43.138.82.158" id="722818dd-d886-4a09-a682-63cab0858264" keyPath="C:\Users\EricTan\Desktop\43.138.82.158_id_ed25519" port="22" nameFormat="DESCRIPTIVE" username="lighthouse" useOpenSSHConfig="false" />
+      <sshConfig host="43.138.82.158" id="722818dd-d886-4a09-a682-63cab0858264" keyPath="C:\Users\EricTan\Desktop\key" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" useOpenSSHConfig="false" />
     </configs>
   </component>
 </project>

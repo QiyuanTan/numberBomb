@@ -33,7 +33,15 @@ def index(request):
     number = Number.objects.get(pk=1)
     if number.in_progress:  # 游戏进行中
         return render(request, 'standby.html')
-    else:  # 显示结果
+    else:
+        return HttpResponseRedirect('/result')
+
+
+def result(request):
+    number = Number.objects.get(pk=1)
+    if number.in_progress:  # 游戏进行中
+        return HttpResponseRedirect('')
+    else:
         winners = list(Winners.objects.all())
         return render(request, 'show_result.html', {'winners': winners})
 

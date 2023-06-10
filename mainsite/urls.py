@@ -11,5 +11,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('register', views.register, name='registration'),
+    path('result', views.result),
     path('game_admin', views.admin)
 ]
