@@ -3,28 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    {%load static %}
+    {% load static %}
+
+    <style>
+        label {
+            display: inline-block;
+            width: 250px;
+            font-size: 65px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 300px;
+            height: 40px;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 350px;
+            left: 50px;
+            z-index: 1;
+        }
+
+        /* Updated styles for the submit button */
+        input[type="submit"] {
+            width: 200px; /* Increased width */
+            height: 60px; /* Increased height */
+            font-size: 45px;
+            margin-top: 20px; /* Added margin-top for spacing */
+            margin-left: 400px; /* Added margin-left to move it to the right */
+        }
+    </style>
+
+
 </head>
 <body>
-    <!- 我是谢鸿哲，谭期元人不仅长得帅，还会用Django。代码格式给的非常好！ ->
-    <!- 他现在单身，还没有女朋友。喜欢的可以来，微信号：tan_qiyuan ->
-    <!- 这是一条征婚启示 ->
-    <!- 可恶的学生会，安排这个数字炸弹才给2天搭建网站的时间 ->
+    <h3>Number Boom Game, 作者：谭期元，谢鸿哲</h3>
+    <!-- 我是谢鸿哲，谭期元人不仅长得帅，还会用Django。代码格式给的非常好！ -->
+    <!-- 他现在单身，还没有女朋友。喜欢的可以来，微信号：tan_qiyuan -->
+    <!-- 这是一条征婚启示 -->
 
+    <div class="container">
+        <!-- 这是刘煜炎佩戴Apple Vision Pro的图片 -->
+        <img src="{% static '/img/numberBoomWebBackground.png' %}" alt="">
 
-<form method="POST" novalidate>
-    <!- 这是刘煜炎佩戴Apple Vision Pro的图片 ->
-    <h3>Number Boom Game, Author: Tanqi Yuan, Hongzhe Xie</h3>> <<img src="{%static '/img/numberBoomWebBackground.png'%}" alt="">
+        <div class="form-container">
+            <!-- 学生注册信息文字 -->
+            <label>{{ forms.wechat_id.label }}:</label>
+            {{ forms.wechat_id }}<br>
 
-    <!- Django 部分 ->
-    {% csrf_token %}
-    <label>{{ forms.wechat_id.label }}: </label>{{ forms.wechat_id }}<span style="color: red;">{{ forms.wechat_id.errors.0 }}</span><br>
-    <label>{{ forms.name.label }}: </label>{{ forms.name }}<span style="color: red;">{{ forms.name.errors.0 }}</span><br>
-    <label>{{ forms.grade.label }}: </label>{{ forms.grade }}<span style="color: red;">{{ forms.grade.errors.0 }}</span><br>
-    <label>{{ forms.class_number.label }}: </label>{{ forms.class_number }}<span style="color: red;">{{ forms.class_number.errors.0 }}</span><br>
-    <label>{{ forms.number.label }}: </label>{{ forms.number }}<span style="color: red;">{{ forms.number.errors.0 }}</span><br>
-    <input type="submit" value="提交">
+            <label>{{ forms.name.label }}:</label>
+            {{ forms.name }}<br>
 
-</form>
+            <label>{{ forms.grade.label }}:</label>
+            {{ forms.grade }}<br>
+
+            <label>{{ forms.class_number.label }}:</label>
+            {{ forms.class_number }}<br>
+
+            <label>{{ forms.number.label }}:</label>
+            {{ forms.number }}<br>
+
+            <input type="submit" value="提交">
+        </div>
+    </div>
+
 </body>
 </html>
