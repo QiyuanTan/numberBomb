@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
 </head>
+<style>
+    img {
+    position: absolute;
+    z-index: -1;
+    }
+</style>
+
 <body>
-游戏进行中
+    <h3>Number Boom Game, 作者：谭期元，谢鸿哲</h3>
+    <h3>等待开奖祝你好运</h3>
+    <h2>广告位招租</h2>
+    <img src="{% static '/img/watting.png' %}" alt="">
 </body>
 </html>
