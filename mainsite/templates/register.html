@@ -13,9 +13,11 @@
 
 
 <form method="POST" novalidate>
-    <h2>NumberBoom</h2> <img src="{%static '/img/boom.png'%}" alt="">
-    <h2>Cambridge Doc</h2>> <img src="{%static '/img/numberBoomWebBackground.png' %} alt="">
+    <!- 这是刘煜炎佩戴Apple Vision Pro的图片 ->
 
+    <h3>Number Boom Game, Author: Tanqi Yuan, Hongzhe Xie</h3>> <<img src="{%static '/img/numberBoomWebBackground.png'%}" alt="">
+
+    <!- Django 部分 ->
     {% csrf_token %}
     <label>{{ forms.wechat_id.label }}: </label>{{ forms.wechat_id }}<span style="color: red;">{{ forms.wechat_id.errors.0 }}</span><br>
     <label>{{ forms.name.label }}: </label>{{ forms.name }}<span style="color: red;">{{ forms.name.errors.0 }}</span><br>
