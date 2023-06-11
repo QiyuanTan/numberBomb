@@ -21,10 +21,8 @@ def generate_random_string(length):
 
 
 class RegisterForm(forms.Form):
-    wechat_id = forms.CharField(label='微信号')
     name = forms.CharField(label='姓名')
-    grade = forms.IntegerField(label='年级')
-    class_number = forms.IntegerField(label='班级')
+    class_number = forms.CharField(label='班级')
     number = forms.FloatField(label='数字')
 
 
@@ -69,7 +67,7 @@ def register(request):
         except IntegrityError:
             form.add_error("name", "请勿重复提交")
             return render(request, 'register.html', {'forms': form})
-        history = History(user=user, wechat_id=wechat_id, grade=grade, class_number=class_number, number=number)
+        history = History(user=user, class_number=class_number, number=number)
         history.save()
         return HttpResponseRedirect('/')
     else:
@@ -82,7 +80,8 @@ def admin(request):
         return HttpResponseRedirect('/admin?next=game_admin')
     else:
         if request.method == 'GET':
-            return render(request, 'game_admin.html')
+            winners = list(Winners.objects.all())
+            return render(request, 'game_admin.html', {'winners': winners})
         else:
             print(request.POST.get('command'))
             if request.POST.get('command') == 'start':
