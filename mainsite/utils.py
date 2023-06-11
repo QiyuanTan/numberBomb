@@ -35,12 +35,10 @@ def stop_game():
     number = Number.objects.get(pk=1)
     number.in_progress = False
     number.save()
-    histories = History.objects.exclude(Q(number__exact=number.number)).order_by(Abs(F('number') - number.number))[:3]
+    histories = History.objects.exclude(Q(number__exact=number.number)).order_by(Abs(F('number') - number.number))[:10]
     for history in histories:
         w = Winners(user=history.user,
-                    wechat_id=history.wechat_id,
                     number=history.number,
-                    grade=history.grade,
                     class_number=history.class_number,
                     delta=abs(history.number-number.number))
         w.save()

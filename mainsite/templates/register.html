@@ -57,14 +57,9 @@
         <div class="form-container">
             <!-- 学生注册信息文字 -->
             {% csrf_token %}
-            <label>{{ forms.wechat_id.label }}:</label>
-            {{ forms.wechat_id }}<span style="color: red;">{{ forms.wechat_id.errors.0 }}</span><br>
 
             <label>{{ forms.name.label }}:</label>
             {{ forms.name }}<span style="color: red;">{{ forms.name.errors.0 }}</span><br>
-
-            <label>{{ forms.grade.label }}:</label>
-            {{ forms.grade }}<span style="color: red;">{{ forms.grade.errors.0 }}</span><br>
 
             <label>{{ forms.class_number.label }}:</label>
             {{ forms.class_number }}<span style="color: red;">{{ forms.class_number.errors.0 }}</span><br>

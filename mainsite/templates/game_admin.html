@@ -9,6 +9,27 @@
     <div id="result"></div>
     <button id="ajaxButton2">结束</button>
     <div id="result2"></div>
+    结果：
+    <table style="font-size: 60px;" border="1">
+
+        <tr>
+            <!-表头->
+            <th>排名</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>数字</th>
+            <th>距离爆炸</th>
+        </tr>
+        {% for i in winners %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.user.username }}</td>
+            <td>{{ i.class_number }}</td>
+            <td>{{ i.number }}</td>
+            <td>{{ i.delta }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
     <script>
         $(document).ready(function() {
