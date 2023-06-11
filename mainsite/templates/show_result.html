@@ -7,13 +7,17 @@
 </head>
 <body>
     <h3>Number Boom Game, 作者：谭期元，谢鸿哲</h3>
-    <table>
+    <h1>some information</h1>
+    <table style="font-size: 45px;" border="1">
         <tr>
-            <th>Username</th>
-            <th>Delta</th>
+            <!-表头->
+            <th>排名</th>
+            <th>姓名</th>
+            <th>距离爆炸</th>
         </tr>
         {% for i in winners %}
         <tr>
+            <td>{{ forloop.counter }}</td>
             <td>{{ i.user.username }}</td>
             <td>{{ i.delta }}</td>
         </tr>
