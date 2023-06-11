@@ -43,7 +43,7 @@ def result(request):
         return HttpResponseRedirect('')
     else:
         winners = list(Winners.objects.all())
-        return render(request, 'show_result.html', {'winners': winners})
+        return render(request, 'show_result.html', {'winners': winners, 'number': number.number})
 
 
 def register(request):
