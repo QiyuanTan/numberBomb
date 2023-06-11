@@ -41,7 +41,9 @@ def result(request):
         return HttpResponseRedirect('')
     else:
         winners = list(Winners.objects.all())
-        return render(request, 'show_result.html', {'winners': winners, 'number': number.number})
+        return render(request, 'show_result.html', {'winners': winners,
+                                                    'number': number.number,
+                                                    'usernumber': request.user.history.number})
 
 
 def register(request):
@@ -56,8 +58,6 @@ def register(request):
     form = RegisterForm(data=request.POST)
     if form.is_valid():
         name = form.cleaned_data.get('name')
-        wechat_id = form.cleaned_data.get('wechat_id')
-        grade = form.cleaned_data.get('grade', '')
         class_number = form.cleaned_data.get('class_number')
         number = form.cleaned_data.get('number')
         try:
