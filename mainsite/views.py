@@ -41,9 +41,13 @@ def result(request):
         return HttpResponseRedirect('')
     else:
         winners = list(Winners.objects.all())
+        try:
+            usernumber = request.user.history.number
+        except AttributeError:
+            usernumber = '-'
         return render(request, 'show_result.html', {'winners': winners,
                                                     'number': number.number,
-                                                    'usernumber': request.user.history.number})
+                                                    'usernumber': usernumber})
 
 
 def register(request):
