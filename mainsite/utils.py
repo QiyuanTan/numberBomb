@@ -36,7 +36,7 @@ def stop_game():
     number.in_progress = False
     number.save()
     histories = History.objects.exclude(Q(number__exact=number.number)).order_by(Abs(F('number') - number.number))[:10]
-    bombed = History.objects.filter(number=number)
+    bombed = History.objects.filter(number=number.number)
     for history in histories:
         w = Winners(user=history.user,
                     number=history.number,
