@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from mainsite.models import History, Number, Winners
+from mainsite.models import History, Number, Winners, Bombed
 from mainsite.utils import initialize, stop_game
 
 
@@ -41,13 +41,15 @@ def result(request):
         return HttpResponseRedirect('')
     else:
         winners = list(Winners.objects.all())
+        bombed = list(Bombed.objects.all())
         try:
             usernumber = request.user.history.number
         except AttributeError:
             usernumber = '-'
         return render(request, 'show_result.html', {'winners': winners,
                                                     'number': number.number,
-                                                    'usernumber': usernumber})
+                                                    'usernumber': usernumber,
+                                                    'bombed': bombed})
 
 
 def register(request):

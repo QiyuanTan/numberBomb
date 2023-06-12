@@ -4,18 +4,77 @@
     <meta charset="UTF-8">
     <title>请耐心等待公布结果</title>
     {% load static %}
+    <style>
+        .button {
+            position: absolute;
+            z-index: 1;
+            top: 875px;
+            left: 730px;
+            transform: translateX(-50%);
+            color: white;
+            background-color: #222;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            font-size: 4rem;
+            line-height: 2rem;
+            padding: 0.7rem 2rem;
+            text-align: center;
+            margin: auto;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            height: 240px;
+            width: 720px;
+        }
+
+        .button:hover {
+            background-color: #333;
+        }
+
+        .button svg {
+            display: inline;
+            width: 1.3rem;
+            height: 1.3rem;
+            margin-right: 0.75rem;
+            color: white;
+        }
+
+        .button:focus svg {
+            animation: spin_357 0.5s linear;
+        }
+
+        @keyframes spin_357 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+    </style>
 </head>
 
 
 <body>
-    <h3>Number Boom Game, 作者：谭期元，谢鸿哲</h3>
-    <h1>祝您好运！</h1>
-    <img src="{% static '/img/watting.png' %}" alt="">
+<h3>Number Bomb Game, 作者：谭期元，谢鸿哲</h3>
+<h1>祝您好运！</h1>
+<img src="{% static '/img/watting.png' %}" alt="">
 
-    <!-刷新按钮->
-    <button onclick="location.reload()" style="position: absolute; top: 0; left: 0; z-index: 1;width: 250px; height: 150px;">Refresh</button>
+<!-刷新按钮->
+<button class="button" type="button" onclick="location.reload()">
+    <svg viewBox="0 0 16 16" class="bi bi-arrow-repeat" fill="currentColor" height="512" width="512"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
+        <path d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+              fill-rule="evenodd"></path>
+    </svg>
+    刷新
+</button>
 
-    <!-- 广告图片 -->
-    <img src="{% static '/img/ad.png' %}" alt="">
+<!-- 广告图片 -->
+<img src="{% static '/img/ad.png' %}" alt="">
 </body>
 </html>

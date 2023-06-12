@@ -16,6 +16,12 @@ class Winners(models.Model):
     delta = models.FloatField()
 
 
+class Bombed(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    number = models.FloatField(name="number")
+    class_number = models.CharField(name='class_number', max_length=10)
+
+
 class Number(models.Model):
     number = models.FloatField()
     in_progress = models.BooleanField()
