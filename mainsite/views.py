@@ -89,7 +89,6 @@ def admin(request):
             winners = list(Winners.objects.all())
             return render(request, 'game_admin.html', {'winners': winners})
         else:
-            print(request.POST.get('command'))
             if request.POST.get('command') == 'start':
                 initialize()
                 return JsonResponse({'status': 'success'})

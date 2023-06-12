@@ -14,22 +14,13 @@
     <h2>您填写的数字是：</h2>
     <h1>{{usernumber}}</h1>
     {% if bombed %}
-    <h3>爆掉力</h3>
-    <table style="font-size: 60px;" border="1">
-
-        <tr>
-            <!-表头->
-            <th>排名</th>
-            <th>姓名</th>
-        </tr>
-        {% for i in winners %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ i.user.username }}</td>
-        </tr>
+    <h3>以下用户运气爆棚，成功引爆了炸弹</h3>
+        <h3>
+        {% for i in bombed %}
+            {{ i.user.username }}
         {% endfor %}
-    </table>
     {% endif %}
+        </h3>
     <h3>获奖列表</h3>
     <table style="font-size: 60px;" border="1">
 

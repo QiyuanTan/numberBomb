@@ -41,7 +41,7 @@ def stop_game():
         w = Winners(user=history.user,
                     number=history.number,
                     class_number=history.class_number,
-                    delta=abs(history.number - number.number))
+                    delta=round(abs(history.number - number.number), 3))
         w.save()
 
     for b in bombed:
