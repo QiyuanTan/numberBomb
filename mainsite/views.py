@@ -38,7 +38,7 @@ def index(request):
 def result(request):
     number = Number.objects.get(pk=1)
     if number.in_progress:  # 游戏进行中
-        return HttpResponseRedirect('')
+        return HttpResponseRedirect('/')
     else:
         winners = list(Winners.objects.all())
         bombed = list(Bombed.objects.all())
