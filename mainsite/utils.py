@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q, F
 from django.db.models.functions import Abs
 
-from mainsite.models import Number, History, Winners
+from mainsite.models import Number, History, Winners, Bombed
 
 
 def initialize():
@@ -26,7 +26,7 @@ def initialize():
         history.delate()
 
     number = Number.objects.get(pk=1)
-    number.number = round(200*random.random(), 1)
+    number.number = round(200 * random.random(), 1)
     number.in_progress = True
     number.save()
 
@@ -36,9 +36,17 @@ def stop_game():
     number.in_progress = False
     number.save()
     histories = History.objects.exclude(Q(number__exact=number.number)).order_by(Abs(F('number') - number.number))[:10]
+    bombed = History.objects.filter(number=number.number)
     for history in histories:
         w = Winners(user=history.user,
                     number=history.number,
                     class_number=history.class_number,
-                    delta=abs(history.number-number.number))
+                    delta=abs(history.number - number.number))
+        w.save()
+
+    for b in bombed:
+        w = Bombed(user=b.user,
+                   number=b.number,
+                   class_number=b.class_number,
+                   )
         w.save()
