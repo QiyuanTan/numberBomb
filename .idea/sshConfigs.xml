@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig host="43.138.82.158" id="0d3c87a6-4397-450b-b6fd-f7cda588d650" keyPath="C:\Users\EricTan\Desktop\key.ppk" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" useOpenSSHConfig="true" />
+      <sshConfig host="43.138.82.158" id="757d4516-303c-4d3a-9195-146a65e3911e" keyPath="$USER_HOME$/Passkeys/xhz.pem" port="22" nameFormat="DESCRIPTIVE" username="ubantu" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>
