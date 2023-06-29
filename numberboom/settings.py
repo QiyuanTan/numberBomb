@@ -19,11 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-h&&gfra648l!^j*o=bw91x))5-jr8t+_bq3m5k2tsoo&7tmd$r"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['43.138.82.158', '127.0.0.1']
 
 # Application definition
 
@@ -119,24 +117,3 @@ STATIC_ROOT = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = '/register'
-
-# 发送邮件配置
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# smtp服务地址
-EMAIL_HOST = 'smtp.qq.com'
-# 端口默认都是25不需要修改
-EMAIL_PORT = 25
-# 发送邮件的邮箱，需要配置开通SMTP
-EMAIL_HOST_USER = "pjc_server@foxmail.com"
-# 在邮箱中设置的客户端授权密码
-EMAIL_HOST_PASSWORD = "zpbvpjnvrjxcdgef"
-# 收件人看到的发件人
-EMAIL_FROM = 'project_cai'
-# 这⾥必须是True，否则发送不成功
-EMAIL_USE_TLS = True
-
-SERVER_EMAIL = "pjc_server@foxmail.com"
-
-DEFAULT_FROM_EMAIL = 'pjc_server'
-
-ADMINS = [('谭期元', 'tanqiyuaneric@163.com'), ('谢鸿哲', 'xiehongzhe04@outlook.com')]
