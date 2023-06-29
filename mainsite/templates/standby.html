@@ -1,54 +1,56 @@
+{% extends 'layout.html' %}
+
 {% block titile %}请耐心等待公布结果{% endblock %}
 {% block head %}
-    <style>
-        .button {
-            position: absolute;
-            z-index: 1;
-            top: 42%;
-            left: 730px;
-            transform: translateX(-50%);
-            color: white;
-            background-color: #222;
-            font-weight: 500;
-            border-radius: 0.5rem;
-            font-size: 4rem;
-            line-height: 2rem;
-            padding: 0.7rem 2rem;
-            text-align: center;
-            margin: auto;
-            display: inline-flex;
-            align-items: center;
-            border: none;
-            height: 240px;
-            width: 720px;
+<style>
+    .button {
+        position: absolute;
+        z-index: 1;
+        top: 42%;
+        left: 730px;
+        transform: translateX(-50%);
+        color: white;
+        background-color: #222;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        font-size: 4rem;
+        line-height: 2rem;
+        padding: 0.7rem 2rem;
+        text-align: center;
+        margin: auto;
+        display: inline-flex;
+        align-items: center;
+        border: none;
+        height: 240px;
+        width: 720px;
+    }
+
+    .button:hover {
+        background-color: #333;
+    }
+
+    .button svg {
+        display: inline;
+        width: 1.3rem;
+        height: 1.3rem;
+        margin-right: 0.75rem;
+        color: white;
+    }
+
+    .button:focus svg {
+        animation: spin_357 0.5s linear;
+    }
+
+    @keyframes spin_357 {
+        from {
+            transform: rotate(0deg);
         }
 
-        .button:hover {
-            background-color: #333;
+        to {
+            transform: rotate(360deg);
         }
-
-        .button svg {
-            display: inline;
-            width: 1.3rem;
-            height: 1.3rem;
-            margin-right: 0.75rem;
-            color: white;
-        }
-
-        .button:focus svg {
-            animation: spin_357 0.5s linear;
-        }
-
-        @keyframes spin_357 {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    }
+</style>
 {% endblock %}
 
 
@@ -74,5 +76,5 @@
 <!-- 广告图片 -->
 <img src="{% static '/img/KFC.jpg' %}" alt="">
 <p style="font-size: 2rem;"><b>网址：<a href="https://530t04f125.yicp.fun/">https://530t04f125.yicp.fun/</a></b>
-<img src="{% static '/img/ad.jpg' %}" alt="">
-{% endblock %}
+    <img src="{% static '/img/ad.jpg' %}" alt="">
+    {% endblock %}

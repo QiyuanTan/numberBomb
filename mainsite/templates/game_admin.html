@@ -1,3 +1,5 @@
+{% extends 'layout.html' %}
+
 {% block title %}游戏后台管理{% endblock %}
 {% block head %}
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -22,42 +24,42 @@
             <th>距离爆炸</th>
         </tr>
         {% for i in winners %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ i.user.username }}</td>
-            <td>{{ i.class_number }}</td>
-            <td>{{ i.number }}</td>
-            <td>{{ i.delta }}</td>
-        </tr>
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.user.username }}</td>
+                <td>{{ i.class_number }}</td>
+                <td>{{ i.number }}</td>
+                <td>{{ i.delta }}</td>
+            </tr>
         {% endfor %}
     </table>
 
     <script>
-        $(document).ready(function() {
-            $('#ajaxButton').click(function() {
+        $(document).ready(function () {
+            $('#ajaxButton').click(function () {
                 $.ajax({
                     url: '',  // 指定服务器的 URL
                     type: 'POST',  // 请求类型
-                    data: {command:'start'},
-                    success: function(response) {
-                    var status = response.status;  // 提取 status 字段
-                    $('#result').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
+                    data: {command: 'start'},
+                    success: function (response) {
+                        var status = response.status;  // 提取 status 字段
+                        $('#result').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.log(error);  // 打印错误信息到控制台
                     }
                 });
             });
-            $('#ajaxButton2').click(function() {
+            $('#ajaxButton2').click(function () {
                 $.ajax({
                     url: '?command=stop',  // 指定服务器的 URL
                     type: 'POST',  // 请求类型
-                    data: {command:'stop'},
-                    success: function(response) {
-                    var status = response.status;  // 提取 status 字段
-                    $('#result2').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
+                    data: {command: 'stop'},
+                    success: function (response) {
+                        var status = response.status;  // 提取 status 字段
+                        $('#result2').text('Status: ' + status)  // 将服务器响应显示在 result 元素中
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.log(error);  // 打印错误信息到控制台
                     }
                 });

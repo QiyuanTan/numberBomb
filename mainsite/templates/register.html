@@ -1,4 +1,7 @@
+{% extends 'layout.html' %}
+
 {% block title %}信息填写{% endblock %}
+
 {% block head %}
     <style>
         label {
@@ -39,31 +42,33 @@
 
 
 {% block body %}
+    {% load static %}
     <h2>Number Bomb Game, 作者：谭期元，谢鸿哲</h2>
-    <h1>数字绝对随机，项目已开源，地址：<a href="https://github.com/tanqiyuaneric/numberBomb">https://github.com/tanqiyuaneric/numberBomb</a></h1>
+    <h1>数字绝对随机，项目已开源，地址：<a href="https://github.com/tanqiyuaneric/numberBomb">https://github.com/tanqiyuaneric/numberBomb</a>
+    </h1>
     <!-- 我是谢鸿哲，谭期元人不仅长得帅，还会用Django。代码格式给的非常好！ -->
     <!-- 他现在单身，还没有女朋友。喜欢的可以来，微信号：tan_qiyuan -->
 
     <form method="POST" novalidate>
-    <div class="container">
-        <img src="{% static '/img/numberBoomWebBackground.jpg' %}" alt="">
+        <div class="container">
+            <img src="{% static '/img/numberBoomWebBackground.jpg' %}" alt="">
 
-        <div class="form-container">
-            <!-- 学生注册信息文字 -->
-            {% csrf_token %}
+            <div class="form-container">
+                <!-- 学生注册信息文字 -->
+                {% csrf_token %}
 
-            <label>{{ forms.name.label }}:</label>
-            {{ forms.name }}<span style="color: red;">{{ forms.name.errors.0 }}</span><br>
+                <label>{{ forms.name.label }}:</label>
+                {{ forms.name }}<span style="color: red;">{{ forms.name.errors.0 }}</span><br>
 
-            <label>{{ forms.class_number.label }}:</label>
-            {{ forms.class_number }}<span style="color: red;">{{ forms.class_number.errors.0 }}</span><br>
+                <label>{{ forms.class_number.label }}:</label>
+                {{ forms.class_number }}<span style="color: red;">{{ forms.class_number.errors.0 }}</span><br>
 
-            <label>{{ forms.number.label }}:</label>
-            {{ forms.number }}<span style="color: red;">{{ forms.number.errors.0 }}</span><br>
+                <label>{{ forms.number.label }}:</label>
+                {{ forms.number }}<span style="color: red;">{{ forms.number.errors.0 }}</span><br>
 
-            <input type="submit" value="提交">
+                <input type="submit" value="提交">
 
+            </div>
         </div>
-    </div>
     </form>
 {% endblock %}
